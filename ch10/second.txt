@@ -1,0 +1,6 @@
+Notice that the preceding example closes the file stream after the try block that reads the
+file has completed. Although this approach is occasionally useful, Java supports a variation that
+is often a better choice. The variation is to call close( ) within a finally block. In this approach,
+all of the methods that access the file are contained within a try block, and the finally block
+is used to close the file. This way, no matter how the try block terminates, the file is closed.
+Assuming the preceding example, here is how the try block that reads the file can be recoded:
