@@ -28,7 +28,7 @@ public class CheckboxDemo extends Application {
 
 	// Override the start() method.
 	public void start(Stage myStage) {
-		
+
 		// Give the stage a title.
 		myStage.setTitle("Demostrate Check Boxes");
 
@@ -59,10 +59,17 @@ public class CheckboxDemo extends Application {
 		cbNotebook = new CheckBox("Notebook");
 		cbDesktop = new CheckBox("Desktop");
 
+		cbSmartphone.setAllowIndeterminate(true);
+		cbTablet.setAllowIndeterminate(true);
+		cbNotebook.setAllowIndeterminate(true);
+		cbDesktop.setAllowIndeterminate(true);
+
 		// Handle action events for the check boxes.
 		cbSmartphone.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent ae) {
-				if(cbSmartphone.isSelected())
+				if(cbSmartphone.isIndeterminate())
+					response.setText("Smartphone state is indeterminate.");
+				else if(cbSmartphone.isSelected())
 					response.setText("Smartphone was just selected.");
 				else
 					response.setText("Smartphone was just cleared.");
@@ -73,7 +80,9 @@ public class CheckboxDemo extends Application {
 
 		cbTablet.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent ae) {
-				if(cbTablet.isSelected())
+				if(cbTablet.isIndeterminate())
+					response.setText("Tablet state is indeterminate");
+				else if(cbTablet.isSelected())
 					response.setText("Tablet was just selected.");
 				else
 					response.setText("Tablet was just cleared.");
@@ -84,7 +93,9 @@ public class CheckboxDemo extends Application {
 
 		cbNotebook.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent ae) {
-				if(cbNotebook.isSelected())
+				if(cbNotebook.isIndeterminate())
+					response.setText("Notebook state is indeterminate.");
+				else if(cbNotebook.isSelected())
 					response.setText("Notebook was just selected.");
 				else
 					response.setText("Notebook was just cleared.");
@@ -95,7 +106,9 @@ public class CheckboxDemo extends Application {
 
 		cbDesktop.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent ae) {
-				if(cbDesktop.isSelected())
+				if(cbDesktop.isIndeterminate())
+					response.setText("Desktop state is indeterminate.");
+				else if(cbDesktop.isSelected())
 					response.setText("Desktop was just selected.");
 				else
 					response.setText("Desktop was just cleared.");
